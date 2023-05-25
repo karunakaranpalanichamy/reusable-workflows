@@ -1,5 +1,16 @@
 name: infrastructure branch deployment
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      access_key_id: 
+        description: AWS_ACCESS_KEY_ID
+        required: true
+        type: string
+      
+      secret_access_key: 
+        description: AWS_SECRET_ACCESS_KEY
+        required: true
+        type: string
 jobs:
   b_validate:
     runs-on: ubuntu-latest
@@ -42,7 +53,7 @@ jobs:
         run: python -m pip install --upgrade pip requests
 
       - name: Execute Python script # Run the run.py to get the latest data
-        run: python run.py
+        run: echo "execute run.py"
       - name: printing out the extract branch
         run: echo " context object ---> ${steps.extract_branch.outputs.branch}"
        # if: steps.extract_branch.outputs.branch == 'master'
