@@ -7,4 +7,12 @@ on:
         required: true
         type: string
         default: '0.14.7'
+jobs:
+  setup_terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: terraform setup
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version:  ${{ inputs.terraform-version }}
      
