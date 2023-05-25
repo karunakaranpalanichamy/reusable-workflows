@@ -1,0 +1,10 @@
+name: terraform install template 
+on:
+  workflow_call:
+    inputs:
+      # pass in environment through manual trigger, if not passed in, default to 'dev'
+      terraform-version:
+        required: true
+        type: string
+        default: '0.14.7'
+     
